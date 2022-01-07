@@ -1,0 +1,33 @@
+
+/* * {
+    box-sizing: border-box;
+} */
+
+.text-center {
+    text-align: center;
+}
+
+.upcoming-movies-header {
+    background-color: #ff9999;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+
+
+.flex-container {
+    display: flex;
+    padding: 15px;
+
+}
+
+.left {
+    flex-basis: 76%;
+}
+
+
+
+
+.curs-pointer {
+    cursor: pointer;
+}
