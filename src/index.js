@@ -6,9 +6,9 @@ import { Home } from './screens/home/Home';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div>
     <Home />
-  </React.StrictMode>,
+    </div>,
   document.getElementById('root')
 );
 
