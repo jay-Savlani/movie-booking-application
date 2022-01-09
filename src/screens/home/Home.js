@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Outlet} from 'react-router-dom';
 import { Header } from '../../common/header/Header';
 import './Home.css';
 import moviesData from '../../common/moviesData';
@@ -93,6 +94,7 @@ class Home extends Component {
 
         let upComingMovies = this.state.moviesData;
         let releasedMovies = this.state.releasedMovies;
+        let movieName = this.state.movieName;
         let genres = this.state.movieGenres;
         let artists = this.state.movieArtists;
         let movieGenre = this.state.genre;
@@ -101,8 +103,9 @@ class Home extends Component {
         let releaseDateStart = this.state.releaseDateStart;
         return (
             <div>
-
-                <Header />
+                
+                <Header  />
+               
                 <div className='text-center upcoming-movies-header'><Typography sx={{ color: 'black' }} component='span'>
                     Upoming Movies
                 </Typography></div>
@@ -140,20 +143,25 @@ class Home extends Component {
                 </ImageList>
                 <div className='flex-container'>
                     <div className='left'> {/* Released Movies container */}
-                        <ImageList
+                    <ImageList
                             variant='standard'
-                            cols={4} rowHeight={350}
+                            cols={4} 
+                            rowHeight={350}
                             className='image-list-release-movies curs-pointer'
                             gap={50}
                             sx={{
-                                overflowY: 'visible'
+                                overflowY: 'visible',
                             }}
                         >
                             {
-                                releasedMovies.map((movie, index) => {
+                                releasedMovies.map((movie) => {
                                     const readableDate = convertDate(movie.release_date);
                                     return (
-                                        <ImageListItem key={index}
+                                        <Link key={movie.id} to= {{
+                                            pathname: `/Details/${movie.title}`,
+                                           
+                                        }} >
+                                        <ImageListItem 
                                             sx={{
                                                 overflowY: 'hidden'
                                             }}
@@ -162,16 +170,18 @@ class Home extends Component {
                                             <img src={movie.poster_url} alt={movie.title} />
                                             <ImageListItemBar title={movie.title} subtitle={`Release Date: ${readableDate}`} />
                                         </ImageListItem>
+                                        </Link>
 
                                     )
                                 })
                             }
                         </ImageList>
+                        
                     </div>
                     <div className='right'> {/* Form Container */}
 
                         <Card>
-                            <CardHeader title='FIND MOVIES BY: ' />
+                            <CardHeader sx={{color: '#42a5f5'}} title='FIND MOVIES BY: ' />
                             <CardContent>
                                 {/* Text Field */}
                                 <FormControl
@@ -179,7 +189,7 @@ class Home extends Component {
                                 >
                                     <TextField
 
-                                        variant='standard' label='Movie Name' name='movieName' onChange={this.handleTextChange} />
+                                        variant='standard' value={movieName} label='Movie Name' name='movieName' onChange={this.handleTextChange} />
                                 </FormControl>
                                 <br />
                                 {/* Select */}
@@ -226,10 +236,10 @@ class Home extends Component {
                                         label='Artist'
                                     >
                                         {
-                                            artists.map((artist, index) => {
+                                            artists.map((artist) => {
                                                 const artistFullName = `${artist.first_name} ${artist.last_name}`;
                                                 return (
-                                                    <MenuItem key={index} value={artistFullName}>
+                                                    <MenuItem key={artist.id} value={artistFullName}>
                                                         <Checkbox checked={movieArtist.indexOf(artistFullName) > -1} />
                                                         <ListItemText primary={artistFullName} />
                                                     </MenuItem>
@@ -291,7 +301,7 @@ class Home extends Component {
                     </div>
 
                 </div>
-
+             
 
             </div >
 

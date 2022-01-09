@@ -47,7 +47,7 @@ let moviesData = [
         ],
         duration: 152,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg",
-        trailer_url: "https://www.youtube.com/watch?v=_PZpmTj1Q8Q",
+        trailer_url: "https://www.youtube.com/watch?v=_PZpmTj1Q8Q"  ,
         wiki_url: "https://en.wikipedia.org/wiki/The_Dark_Knight_(film)",
         release_date: "2008-07-18T00:00:00+05:30",
         censor_board_rating: "PG-13",

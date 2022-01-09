@@ -1,0 +1,30 @@
+.details-container {
+    display: flex;
+    margin: 10px;
+}
+
+.details-left {
+    /* border: 1px solid black; */
+    flex-basis: 20%;
+    padding: 5px;
+}
+
+.details-middle {
+    /* border: 1px solid yellowgreen; */
+    flex-basis: 60%;
+    padding: 5px;
+}
+
+.details-right {
+    /* border: 1px solid blue; */
+    flex-basis: 20%;
+    padding: 5px;
+}
+
+.details-left {
+    text-align: center;
+} 
+
+.bold {
+    font-weight:600;
+}
