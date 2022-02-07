@@ -1,3 +1,12 @@
+An interactive movie booking application based on React Js Library. 
+It uses JSON data stored as a document inside the project folder structure. (in place of apis).
+However the project is made such that it can very integrate with RESTful APIs in future.
+User can search and apply for users. 
+It uses Google's MUI Library for styling purpose.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
